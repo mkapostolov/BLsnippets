@@ -1,0 +1,7 @@
+node_modules
+.kinvey
+.projectile
+.DS_Store
+output.log
+setup/files/
+test/config.js

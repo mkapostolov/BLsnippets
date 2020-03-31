@@ -1,0 +1,24 @@
+{
+  "name": "bl-snippets",
+  "version": "1.0.1",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "build": "node ./setup/buildFile_Changed.js",
+    "build-all": "node ./setup/buildFile_All.js",
+    "deploy": "npm run build; kinvey appenv apply --file ./setup/files/changedFiles.json",
+    "deploy-all": "npm run build-all; kinvey appenv apply --file ./setup/files/allFiles.json",
+    "test": "mocha --recursive"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^7.1.1",
+    "axios": "^0.19.2"
+  }
+}
