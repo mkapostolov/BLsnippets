@@ -14,7 +14,7 @@ function onRequest(request, response, modules) {
   var missingError = null;
   missingError = missingError || checkIfPropertyExist('collection', collection);
   missingError = missingError || checkIfPropertyExist('update', update);
-  if (missingError) return sendErrorResponse(missingError, response, 400);
+  if (missingError) return sendErrorResponse(missingError, response);
 
   var query = request.body.query || {};
   update._kmd = { lmt: new Date() };
@@ -27,6 +27,6 @@ function onRequest(request, response, modules) {
       sendSucessResponse(item, response);
     })
     .catch(function (error) {
-      sendErrorResponse(error, response, 400);
+      sendErrorResponse(error, response);
     });
 }

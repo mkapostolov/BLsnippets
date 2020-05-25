@@ -16,12 +16,12 @@ function onRequest(request, response, modules) {
   missingError = missingError || checkIfPropertyExist('to', to);
   missingError = missingError || checkIfPropertyExist('subject', subject);
   missingError = missingError || checkIfPropertyExist('textBody', textBody);
-  if (missingError) return sendErrorResponse(missingError, response, 400);
+  if (missingError) return sendErrorResponse(missingError, response);
 
   var email = modules.email;
   email.send(from, to, subject, textBody, function (err, result) {
     if (err) {
-      return sendErrorResponse(err, response, 400);
+      return sendErrorResponse(err, response);
     }
 
     sendSucessResponse(result, response);

@@ -13,7 +13,7 @@ function onRequest(request, response, modules) {
   var missingError = null;
   missingError = missingError || checkIfPropertyExist('collection', collection);
   missingError = missingError || checkIfPropertyExist('items', items);
-  if (missingError) return sendErrorResponse(missingError, response, 400);
+  if (missingError) return sendErrorResponse(missingError, response);
 
   items.forEach(function (item) {
     item = modules.kinvey.entity(item);
@@ -26,6 +26,6 @@ function onRequest(request, response, modules) {
       sendSucessResponse(items, response);
     })
     .catch(function (error) {
-      sendErrorResponse(error, response, 400);
+      sendErrorResponse(error, response);
     });
 }

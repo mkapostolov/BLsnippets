@@ -10,7 +10,7 @@ function onRequest(request, response, modules) {
   var missingError = null;
   missingError = missingError || checkIfPropertyExist('collection', collection);
   missingError = missingError || checkIfPropertyExist('item', data);
-  if (missingError) return sendErrorResponse(missingError, response, 400);
+  if (missingError) return sendErrorResponse(missingError, response);
 
   var kinveyData = modules.kinvey.entity(data);
   var dataStore = modules.collectionAccess.collection(collection);
@@ -20,6 +20,6 @@ function onRequest(request, response, modules) {
       sendSucessResponse(item, response);
     })
     .catch(function (error) {
-      sendErrorResponse(error, response, 400);
+      sendErrorResponse(error, response);
     });
 }

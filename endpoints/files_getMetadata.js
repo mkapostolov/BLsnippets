@@ -8,6 +8,9 @@ function onRequest(request, response, modules) {
   var authString = context.authString;
   var fileId = request.body.fileId;
 
+  var missingError = checkIfPropertyExist('fileId', fileId);
+  if (missingError) return sendErrorResponse(missingError, response);
+
   var requestOptions = {
     uri: 'https://' + baseUrl + '/blob/' + appKey + '/' + fileId,
     headers: { Authorization: authString },

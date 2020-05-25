@@ -1,4 +1,4 @@
-// requires utils.processResponse()
+/ requires utils.processResponse()
 // requires utils.getContext()
 function onRequest(request, response, modules) {
   var imageString = request.body.image;
@@ -28,7 +28,7 @@ function onRequest(request, response, modules) {
       sendSucessResponse('successfully uploaded file', response);
     })
     .catch(function (err) {
-      sendErrorResponse(err, response, 400);
+      sendErrorResponse(err, response);
     });
 }
 

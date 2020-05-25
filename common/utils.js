@@ -41,17 +41,19 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-function sendSucessResponse(data, response) {
+function sendSucessResponse(data, response, statusCode) {
+  if (!statusCode) statusCode = 200;
   if (typeof data !== 'object') {
     response.body = { result: data };
   } else {
     response.body = data;
   }
 
-  response.complete();
+  response.complete(statusCode);
 }
 
 function sendErrorResponse(err, response, statusCode) {
+  if (!statusCode) statusCode = 400;
   if (typeof err !== 'object') {
     response.body = { error: err };
   } else {
@@ -62,11 +64,8 @@ function sendErrorResponse(err, response, statusCode) {
 }
 
 function checkIfPropertyExist(name, value) {
-  if (!value) {
-    error = {
-      error: "Missing '" + name + "' property in the request body.",
-    };
-    return error;
-  }
+  if (!value)
+    return { error: "Missing '" + name + "' property in the request body." };
+
   return null;
 }

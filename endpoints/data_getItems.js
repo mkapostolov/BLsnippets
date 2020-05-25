@@ -15,7 +15,7 @@ function onRequest(request, response, modules) {
   var collection = body.collection;
 
   var missingError = checkIfPropertyExist('collection', collection);
-  if (missingError) return sendErrorResponse(missingError, response, 400);
+  if (missingError) return sendErrorResponse(missingError, response);
 
   var query = body.query || {};
   var options = {
@@ -32,6 +32,6 @@ function onRequest(request, response, modules) {
       sendSucessResponse(items, response);
     })
     .catch(function (error) {
-      sendErrorResponse(error, response, 400);
+      sendErrorResponse(error, response);
     });
 }
