@@ -31,7 +31,7 @@ describe(endpointName, function () {
     it('Should return an error if no collection is passed', function () {
       assert.equal(
         resultError.data.error,
-        'Missing "collection" property in the request body.'
+        `Missing 'collection' property in the request body.`
       );
     });
   });

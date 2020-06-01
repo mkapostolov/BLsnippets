@@ -1,4 +1,4 @@
-/ requires utils.processResponse()
+// requires utils.processResponse()
 // requires utils.getContext()
 function onRequest(request, response, modules) {
   var imageString = request.body.image;

@@ -71,7 +71,7 @@ describe(endpointName, async function () {
       it('Should return missing property', async function () {
         assert.equal(
           result.data.error,
-          'Missing "collection" property in the request body.'
+          `Missing 'collection' property in the request body.`
         );
       });
     });
@@ -97,7 +97,7 @@ describe(endpointName, async function () {
       it('Should return missing property', async function () {
         assert.equal(
           result.data.error,
-          'Missing "deleteBefore" property in the request body.'
+          `Missing 'deleteBefore' property in the request body.`
         );
       });
     });

@@ -1,7 +1,7 @@
-// var sampleBody = {
-//   title: 'myBook',
-//   author: 'myAuthor'
-// };
+//  var sampleBody = {
+//    collection: 'books',
+//    item: { title: 'myBook', author: 'myAuthor' }
+//    };;
 
 function onRequest(request, response, modules) {
   var collection = request.body.collection;
